@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .header {
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 700px; /* Adjust as necessary */
+        }
+        .box {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .box-header {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6600;
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .content {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .footer {
+            font-size: 14px;
+            color: #888;
+        }
+        .image-center {
+            text-align: center;
+        }
+        .box img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ header_image }}" alt="Header Image">
+            <h1>{{ header_title }}</h1>
+        </div>
+        {% for item in data_list %}
+        <div class="box">
+            <div class="box-header">Outlook</div>
+            {% if item.image %}
+            <div class="image-center">
+                <img src="{{ item.image }}" alt="Image for {{ item.title }}">
+            </div>
+            {% endif %}
+            <div class="title">{{ item.title }}</div>
+            <div class="content">{{ item.content | nl2br }}</div>
+            <div class="footer">From: {{ item.name }}</div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
