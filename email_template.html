@@ -70,7 +70,7 @@
             {% endif %}
             <div class="title">{{ item.title }}</div>
             <div class="content">{{ item.content | nl2br }}</div>
-            <div class="footer">From: {{ item.name }}</div>
+            <div class="footer">From: <a href="{{ item.url }}">{{ item.name }}</a></div>
         </div>
         {% endfor %}
     </div>
